@@ -10,7 +10,7 @@
 
 # please modify WEBLINK, UPDATE_INTERVAL, XML_EXCLUDE_REGEX, WEBCRAWL_EXCLUDE_REGEX for your usage.
 
-         WEBLINK=http://server.takar.de
+         WEBLINK=YOURDOMAIN
  UPDATE_INTERVAL=monthly # daily weekly monthly yearly
      LASTMODDATE=$(date +%Y-%m-%d)
    NEWSITEMAPXML=sitemap.xml
@@ -26,6 +26,12 @@
      XML_EXCLUDE_REGEX="index.html|.js|.css|.jpg|.png|fonts|.svg|robots|xmlrpc|static-files"
 WEBCRAWL_EXCLUDE_REGEX="add-to-cart|add_to_wishlist|edit-account|warenkorb|mein-konto|index|wp-login.php|wp-admin|rest_api|page|number|type=list|type=grid|wunschliste|kasse|orders"
 
+
+if [ "$WEBLINK" == "YOURDOMAIN" ]; 
+    then 
+	 echo -e "Use the WEBLINK variable to set your site link in sitemap.sh script. and look the regex for your usage\n\n abort. "; 
+	exit 1;
+fi
 
 ### BEGINNING CRAWLING
 
